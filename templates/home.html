@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Classifier</title>
+    <!-- Add any CSS or JS links here -->
+</head>
+<body>
+    <h2>Welcome to the Bird Image Classifier</h2>
+    <p>
+        In this example we have created a Neural Network that can be trained to classify a bird. The initial example was a jupyterbook which I converted to a flask app.
+    <p/>
+
+    <h3>First we need to gather some images we can use for training</h3>
+    <p>
+        To train a model we need images, when pressing this button you will trigger a script that wil fetch 90 images of birds and forests.
+    <p/>
+    <form action="/collect-images" method="post" enctype="multipart/form-data">
+        <button type="submit">Collect Images</button>
+    </form>
+    {% if result %}
+        <p><i>✅ Images are gathered and stored {{ result }}</i></p>
+    {% endif %}
+
+    <h3>Now we need to train the model</h3>
+    <p>
+        Now that we have gathered the training material we create a test and validation set and start training the model to know what a bird is.
+    <p/>
+    <form action="/train-model" method="post">
+        <button type="submit">Start Training</button>
+    </form>
+    {% if result2 %}
+        <p><i>✅ Model is trained: {{ result2 }}</i></p>
+    {% endif %}
+    </form>
+    
+    <h3>Upload an Image for Classification</h3>
+    <p>
+        Now let's see how well the model works by uploading an image.
+        When the probability is 1 it is 100% confident that it's a bird.
+    <p/>
+    <form action="/classify" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <input type="submit" value="Classify Image">
+    </form>
+    <h3>Classification Result: </h3>
+    {% if result4 %}
+        <p>✅ {{ result4.result }}</p>
+        <img src="{{ result4.src }}" alt="Classified Image">
+    {% endif %}
+</body>
+</html>
