@@ -1,5 +1,5 @@
 # Bird Image classifier
-This app is a converted Jupyter notebook into a Flask app from the course Fast.AI: Practical Deep Learning for coders
+This app is a converted Jupyter notebook into a Flask app from the Fast.AI course: Practical Deep Learning for coders. [https://course.fast.ai/](https://course.fast.ai/)
 
 ## Notebook steps
 - The notebook pulls images from the web; birds, forests.
@@ -8,7 +8,7 @@ This app is a converted Jupyter notebook into a Flask app from the course Fast.A
 - Validate the model 
 
 ## Added feature
-- I added a UI with Flask to upload an images and let the model classefy and provide a probability.
+- I added a UI with Flask to upload an images and let the model classify and provide a probability.
 
 
 ### Run 
